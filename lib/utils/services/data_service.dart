@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
-import '../Models/data_model.dart'; // استورد الموديل هنا
+import '../Models/data_model.dart';
 
 class DataService {
   Future<List<DataModel>> fetchData() async {

@@ -8,14 +8,15 @@ final getDataFuture =
 
 class GetDataFromApi extends ChangeNotifier {
   List<DataModel> listDataModel = [];
-  final DataService _apiService = DataService();
+  final DataService _getapiService = DataService();
 
+  // كدا بقولو فالكونستركتور كل متستعمل الكلاس استعمل الميثود بتعته
   GetDataFromApi() {
     getData();
   }
 
   Future getData() async {
-    listDataModel = await _apiService.fetchData();
+    listDataModel = await _getapiService.fetchData();
     notifyListeners();
   }
 }
