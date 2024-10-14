@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:simple_riverpode/utils/controller/data_controller.dart';
 
-class HomeView extends ConsumerWidget {
-  const HomeView({super.key});
+class DataList extends ConsumerWidget {
+  const DataList({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -12,7 +12,7 @@ class HomeView extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('Fetch data'),
       ),
-      body: viewModel.listDataModel.isEmpty // استخدام listDataModel الصحيح
+      body: viewModel.listDataModel.isEmpty
           ? const Center(
               child: CircularProgressIndicator(),
             )

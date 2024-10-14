@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:simple_riverpode/utils/Models/create_user_model.dart';
 import 'package:simple_riverpode/utils/helper/end_points.dart';
@@ -13,6 +14,10 @@ class PostUserApiService {
       ),
       headers: {'Content-Type': 'application/json'},
     );
+
+    if (kDebugMode) {
+      print(response.body);
+    }
 
     if (response.statusCode == 200) {
       return PostUserModel.fromJson(jsonDecode(response.body));

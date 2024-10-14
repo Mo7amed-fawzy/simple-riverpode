@@ -4,15 +4,27 @@ import 'package:simple_riverpode/utils/Models/user_model.dart';
 import 'package:simple_riverpode/utils/services/get_user.dart';
 import 'package:simple_riverpode/utils/services/post_user.dart';
 
-final userApiServiceProvider = Provider<GetUserApiService>((ref) {
+final getuserApiProvider = Provider<GetUserApiService>((ref) {
   return GetUserApiService();
 });
 
 final userListProvider = FutureProvider<List<User>>((ref) async {
-  return ref.watch(userApiServiceProvider).fetchUser();
+  return ref.watch(getuserApiProvider).fetchUser();
   // طريقة مختلفه
 });
 
+final postUserApiServiceProvider = Provider<PostUserApiService>((ref) {
+  return PostUserApiService();
+});
+
+// نوتيفاير للبوست
+final adduserProvider = StateNotifierProvider<UserNotifire, PostUserModel?>(
+  (ref) {
+    return UserNotifire(ref.read(postUserApiServiceProvider));
+  },
+);
+
+//  state manager البيعدل هو UserNotifire
 class UserNotifire extends StateNotifier<PostUserModel?> {
   // يعني ممكن ميكنش في مستخدم حالي
   final PostUserApiService apiService;
