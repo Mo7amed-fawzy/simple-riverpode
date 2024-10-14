@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:simple_riverpode/utils/functions/error_handel.dart';
+import 'package:simple_riverpode/utils/helper/error_handel.dart';
 import 'package:simple_riverpode/utils/controller/user_controller.dart';
 import 'package:simple_riverpode/view/users_list_view.dart';
 
